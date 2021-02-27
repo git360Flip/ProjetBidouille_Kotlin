@@ -10,13 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetBidouilleKotlin">
         <activity
-            android:name=".MainActivity"
+            android:name=".createPassword.CreatePasswordActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".typePassword.TypePasswordActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
         </activity>
     </application>
 

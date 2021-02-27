@@ -7,4 +7,11 @@
     <string name="save_text">Save Text</string>
     <string name="hide_keyboard">Hide Keyboard</string>
     <string name="saved_text">Saved Text</string>
+    <string name="create_your_new_password">Create your new password</string>
+    <string name="save">Save</string>
+    <string name="type_the_same_password_here">Type the same password here</string>
+    <string name="type_your_new_password_here">Type your new password here</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="type_your_password_here">Type your password here</string>
+    <string name="confirm">Confirm</string>
 </resources>
