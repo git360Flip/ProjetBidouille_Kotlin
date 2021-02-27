@@ -1,31 +1,45 @@
 package com.projetbidouillekotlin.ui.img
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.projetbidouillekotlin.R
 
 class ImgFragment : Fragment() {
 
-    private lateinit var homeViewModel: ImgViewModel
+    private lateinit var imageView: ImageView
+    private lateinit var loadPictureButton: Button
+    private val pickImage = 100
+    private var imageUri: Uri? = null
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(ImgViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_image, container, false)
-        val textView: TextView = root.findViewById(R.id.text_image)
-        homeViewModel.text.observe(viewLifecycleOwner, {
-            textView.text = it
-        })
+        imageView = root.findViewById(R.id.imageView)
+        loadPictureButton = root.findViewById(R.id.loadPictureButton)
+        loadPictureButton.setOnClickListener {
+            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startActivityForResult(gallery, pickImage)
+        }
         return root
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == pickImage) {
+            imageUri = data?.data
+            imageView.setImageURI(imageUri)
+        }
     }
 }
