@@ -3,4 +3,8 @@
     <string name="title_image">Image</string>
     <string name="title_read">Read</string>
     <string name="title_write">Write</string>
+    <string name="type_text_here">Type Text Here</string>
+    <string name="save_text">Save Text</string>
+    <string name="hide_keyboard">Hide Keyboard</string>
+    <string name="saved_text">Saved Text</string>
 </resources>
